@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="reviewExtended"
+            type="com.example.letterboxie.models.review.ReviewExtended" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:strokeColor="#3D3B54"
+        app:strokeWidth="0.25dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1F1D36">
+
+            <TextView
+                android:id="@+id/textViewMovieTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/space_grotesk_bold"
+                android:text="@{reviewExtended.movieCore.movieTitle}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewAuthorAvatar"
+                set_profiles="@{reviewExtended.review.authorDetails.avatarPath}"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="#1F1D36"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CircularShape"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewAuthorUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@{reviewExtended.review.authorDetails.username}"
+                android:textColor="#3D3B54"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewAuthorAvatar"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewAuthorAvatar"
+                app:layout_constraintTop_toTopOf="@+id/imageViewAuthorAvatar" />
+
+            <TextView
+                android:id="@+id/textViewMovieReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:maxLength="4"
+                android:text="@{reviewExtended.movieCore.movieReleaseDate}"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewMovieTitle"
+                app:layout_constraintStart_toEndOf="@+id/textViewMovieTitle" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/ratingBarAuthorRating"
+                style="?android:attr/ratingBarStyleSmall"
+                set_whole_stars="@{reviewExtended.review.authorDetails.rating}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
+                android:isIndicator="true"
+                android:progressTint="#13CA1A"
+                android:stepSize="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMovieTitle" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMoviePoster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarAuthorRating"
+                app:strokeColor="#3D3B54"
+                app:strokeWidth="0.3dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#1F1D36">
+
+                    <ImageView
+                        android:id="@+id/imageMoviePoster"
+                        set_movie_posters="@{reviewExtended.movieCore.moviePoster}"
+                        android:layout_width="75dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/textViewReviewContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_sans_regular"
+                android:maxLines="5"
+                android:text="@{reviewExtended.review.content}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardMoviePoster"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewAuthorAvatar" />
+
+            <TextView
+                android:id="@+id/textViewFractionalRating"
+                set_fractional_rating="@{reviewExtended.review.authorDetails.rating}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/open_sans_medium"
+                android:textColor="#13CA1A"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingBarAuthorRating"
+                app:layout_constraintStart_toEndOf="@+id/ratingBarAuthorRating"
+                app:layout_constraintTop_toTopOf="@+id/ratingBarAuthorRating"
+                tools:ignore="SmallSp" />
+
+            <TextView
+                android:id="@+id/textViewReadMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_grotesk_semibold"
+                android:text="Read More"
+                android:textColor="#E9A6A6"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@+id/textViewReviewContent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewReviewContent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

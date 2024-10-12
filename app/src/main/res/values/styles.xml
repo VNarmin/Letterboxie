@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HomeBottomNavigationTitlesTextAppearance">
+        <item name="fontFamily">@font/space_grotesk_semibold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="CircularShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="MovieDetailsTabLayoutTabsTextAppearance">
+        <item name="fontFamily">@font/open_sans_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RoundedSquareShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+</resources>

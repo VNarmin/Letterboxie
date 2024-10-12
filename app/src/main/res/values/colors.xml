@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="selected_icon_color">#407BFF</color>
+    <color name="default_item_background">#1F1D36</color>
+    <color name="default_title_color">#3D3B54</color>
+    <color name="bar_color">#575477</color>
+    <color name="delete_background">#FF0000</color>
+</resources>

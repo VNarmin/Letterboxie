@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Letterboxie" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="android:statusBarColor">#1F1D36</item>
+        <item name="android:navigationBarColor">#1F1D36</item>
+    </style>
+
+    <style name="Theme.Letterboxie" parent="Base.Theme.Letterboxie" />
+</resources>

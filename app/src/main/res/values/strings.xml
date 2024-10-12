@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Letterboxie</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="already_watched_pressed">Watched</string>
+    <string name="already_watched_default">Watch</string>
+    <string name="liked_pressed">Liked</string>
+    <string name="liked_default">Like</string>
+    <string name="show_more">Show More</string>
+    <string name="show_less">Show Less</string>
+</resources>

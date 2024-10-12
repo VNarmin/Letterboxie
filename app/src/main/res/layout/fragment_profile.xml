@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1F1D36"
+    tools:context=".userInterface.primaryBottomNavigationView.profile.core.ProfileFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/space_grotesk_semibold"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewUser"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:background="#1F1D36"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tyler_durden"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
+                app:shapeAppearanceOverlay="@style/CircularShape" />
+
+            <View
+                android:id="@+id/viewFavorites"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewUser" />
+
+            <TextView
+                android:id="@+id/textViewFavorites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Favorites"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewFavorites" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewFavorites"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewFavorites" />
+
+            <View
+                android:id="@+id/viewRecentActivity"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewFavorites" />
+
+            <TextView
+                android:id="@+id/textViewRecentActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Recent Activity"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewRecentActivity" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewRecentActivity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRecentActivity" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChartUserRatings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="-5dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/viewMovies"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewStar1"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSingleStar"
+                app:layout_constraintTop_toBottomOf="@+id/viewBarChart" />
+
+            <View
+                android:id="@+id/viewMovies"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewSingleStar" />
+
+            <TextView
+                android:id="@+id/textViewMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Movies"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewMovies" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/imageButtonMoviesExpand"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/background_weak_opacity"
+                android:rotation="90"
+                android:src="@drawable/expand_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewMovies"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewMovies"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textViewCountMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/space_grotesk_regular"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewMovies"
+                app:layout_constraintEnd_toStartOf="@+id/imageButtonMoviesExpand"
+                app:layout_constraintTop_toTopOf="@+id/textViewMovies" />
+
+            <View
+                android:id="@+id/viewReviews"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCountMovies" />
+
+            <TextView
+                android:id="@+id/textReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Reviews"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewReviews" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/imageButtonReviewsExpand"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/background_weak_opacity"
+                android:rotation="90"
+                android:src="@drawable/expand_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/textReviews"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textReviews"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textViewCountReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/space_grotesk_regular"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textReviews"
+                app:layout_constraintEnd_toStartOf="@+id/imageButtonReviewsExpand"
+                app:layout_constraintTop_toTopOf="@+id/textReviews" />
+
+            <View
+                android:id="@+id/viewLikes"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textReviews" />
+
+            <TextView
+                android:id="@+id/textViewLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Likes"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewLikes" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/imageButtonLikesExpand"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/background_weak_opacity"
+                android:rotation="90"
+                android:src="@drawable/expand_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewLikes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewLikes"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textViewCountLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/space_grotesk_regular"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewLikes"
+                app:layout_constraintEnd_toStartOf="@+id/imageButtonLikesExpand"
+                app:layout_constraintTop_toTopOf="@+id/textViewLikes" />
+
+            <View
+                android:id="@+id/viewWatchlist"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLikes" />
+
+            <TextView
+                android:id="@+id/textViewWatchlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Watchlist"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewWatchlist" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/imageButtonWatchlistExpand"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/background_weak_opacity"
+                android:rotation="90"
+                android:src="@drawable/expand_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewWatchlist"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewWatchlist"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textViewCountWatchlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/space_grotesk_regular"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewWatchlist"
+                app:layout_constraintEnd_toStartOf="@+id/imageButtonWatchlistExpand"
+                app:layout_constraintTop_toTopOf="@+id/textViewWatchlist" />
+
+            <View
+                android:id="@+id/viewLogout"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWatchlist" />
+
+            <TextView
+                android:id="@+id/textViewLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/space_grotesk_regular"
+                android:text="Sign out"
+                android:textColor="#FD4E16"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewLogout" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/imageButtonLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@null"
+                android:src="@drawable/logout"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewLogout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewLogout"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/imageViewSingleStar"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/rating_star"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewRecentActivity" />
+
+            <ImageView
+                android:id="@+id/imageViewStar5"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/rating_star"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewSingleStar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageViewSingleStar" />
+
+            <ImageView
+                android:id="@+id/imageViewStar4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/rating_star"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewSingleStar"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewStar5"
+                app:layout_constraintTop_toTopOf="@+id/imageViewSingleStar" />
+
+            <ImageView
+                android:id="@+id/imageViewStar3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/rating_star"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewSingleStar"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewStar4"
+                app:layout_constraintTop_toTopOf="@+id/imageViewSingleStar" />
+
+            <ImageView
+                android:id="@+id/imageViewStar2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/rating_star"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewSingleStar"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewStar3"
+                app:layout_constraintTop_toTopOf="@+id/imageViewSingleStar" />
+
+            <ImageView
+                android:id="@+id/imageViewStar1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/rating_star"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewSingleStar"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewStar2"
+                app:layout_constraintTop_toTopOf="@+id/imageViewSingleStar" />
+
+            <View
+                android:id="@+id/viewBarChart"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#3D3B54"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewRecentActivity" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

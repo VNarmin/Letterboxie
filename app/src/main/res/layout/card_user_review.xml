@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="userReview"
+            type="com.example.letterboxie.models.firestore.UserReview" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardUserReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:strokeColor="#3D3B54"
+        app:strokeWidth="0.25dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1F1D36">
+
+            <TextView
+                android:id="@+id/textMovieTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/space_grotesk_bold"
+                android:text="@{userReview.movieCore.movieTitle}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textMovieReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@{userReview.movieCore.movieReleaseDate}"
+                android:maxLength="4"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textMovieTitle"
+                app:layout_constraintStart_toEndOf="@+id/textMovieTitle"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/ratingBarMovieRating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-3dp"
+                android:layout_marginTop="3dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressTint="#13CA1A"
+                android:rating="@{userReview.userRating}"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:stepSize="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textMovieTitle" />
+
+            <ImageView
+                android:id="@+id/imageLiked"
+                manage_like_visibility="@{userReview.liked}"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="-6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingBarMovieRating"
+                app:layout_constraintStart_toEndOf="@+id/ratingBarMovieRating"
+                app:layout_constraintTop_toTopOf="@+id/ratingBarMovieRating"
+                app:srcCompat="@drawable/liked_pressed" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPosterMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarMovieRating"
+                app:strokeColor="#3D3B54"
+                app:strokeWidth="0.3dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewPosterMovie"
+                        set_movie_posters="@{userReview.movieCore.moviePoster}"
+                        android:layout_width="60dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textViewUserReviewContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/open_sans_regular"
+                android:maxLines="6"
+                android:text="@{userReview.reviewContent}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cardPosterMovie"
+                app:layout_constraintTop_toTopOf="@+id/cardPosterMovie" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

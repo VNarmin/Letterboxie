@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_rounded_corners_background"
+    tools:context=".userInterface.bottomSheets.PrimaryActionsBottomSheetFragment">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imageButtonWatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:src="@drawable/already_watched_default"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonLike"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imageButtonLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:src="@drawable/liked_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imageButtonWatchLater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:src="@drawable/watch_later_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonLike"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textViewWatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/space_grotesk_regular"
+        android:text="@string/already_watched_default"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonWatch"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonWatch"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonWatch" />
+
+    <TextView
+        android:id="@+id/textViewLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/space_grotesk_regular"
+        android:text="@string/liked_default"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonLike"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonLike"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonLike" />
+
+    <TextView
+        android:id="@+id/textViewWatchLater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/space_grotesk_regular"
+        android:text="Watchlist"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonWatchLater"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonWatchLater"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonWatchLater" />
+
+    <View
+        android:id="@+id/viewRate"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#1F1D36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLike" />
+
+    <TextView
+        android:id="@+id/textViewRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/space_grotesk_regular"
+        android:text="Rate"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonLike"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonWatch"
+        app:layout_constraintTop_toBottomOf="@+id/viewRate" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:progressTint="#13CA1A"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="@+id/textViewRate"
+        app:layout_constraintStart_toStartOf="@+id/textViewRate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRate" />
+
+    <View
+        android:id="@+id/viewReviewOrLog"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#1F1D36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFavorite" />
+
+    <TextView
+        android:id="@+id/textViewReviewOrLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/space_grotesk_regular"
+        android:text="Add your review..."
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewReviewOrLog" />
+
+    <View
+        android:id="@+id/viewDone"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#1F1D36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textReviewLayout" />
+
+    <TextView
+        android:id="@+id/textViewDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/space_grotesk_regular"
+        android:text="Done"
+        android:textColor="#FD4E16"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDone" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/imageButtonFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:src="@drawable/favorite_default"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonWatchLater"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonWatchLater"
+        app:layout_constraintTop_toBottomOf="@+id/viewRate"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textViewFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/space_grotesk_regular"
+        android:text="Favorite"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonFavorite"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonFavorite"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonFavorite" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textReviewLayout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewReviewOrLog">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textReviewInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_corners_background"
+            android:fontFamily="@font/space_grotesk_regular"
+            android:gravity="start"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            tools:ignore="SmallSp,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

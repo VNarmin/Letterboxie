@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="movieCredits"
+            type="com.example.letterboxie.models.base.MovieCredits" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:strokeColor="#3D3B54"
+        app:strokeWidth="0.25dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#1F1D36">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewPerson"
+                set_profiles="@{movieCredits.profilePath}"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="#1F1D36"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundedSquareShape"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@{movieCredits.name}"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewPerson"
+                app:layout_constraintTop_toTopOf="@+id/imageViewPerson" />
+
+            <TextView
+                android:id="@+id/textViewCharacter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="@{movieCredits.character}"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewPerson"
+                app:layout_constraintStart_toEndOf="@+id/imageViewPerson" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
